@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Spa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="#home" onclick="navigateAndExpand(event, 'home')"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="#services" onclick="navigateAndExpand(event, 'services')"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#about" onclick="navigateAndExpand(event, 'about')"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a href="#contact" onclick="navigateAndExpand(event, 'contact')"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <h1>
+          Welcome to Our Medical Spa
+          <img src="images/spa.png" alt="Spa Icon" class="spa-icon" />
+        </h1>
+      </header>
+      <section id="home" class="home">
+        <h2>Experience Relaxation and Rejuvenation</h2>
+        <p>Your health and wellness are our top priorities.</p>
+        <div class="arrow" onclick="toggleContent(this)">&#9660;</div>
+        <div class="hidden-content">
+          <p>Additional information about relaxation and rejuvenation below.</p>
+        </div>
+      </section>
+      <section id="services" class="services">
+        <h2>
+          Our Services
+          <img
+            src="images/control.png"
+            alt="Control Icon"
+            class="services-icon"
+          />
+        </h2>
+        <p>
+          We offer a variety of medical spa treatments tailored to your needs.
+        </p>
+        <div class="arrow" onclick="toggleContent(this)">&#9660;</div>
+        <div class="hidden-content">
+          <ul class="services-list">
+            <li>Laser Hair Removal</li>
+            <li>Botox Injections</li>
+            <li>Microdermabrasion</li>
+            <li>Chemical Peels</li>
+            <li>Facial Treatments</li>
+            <li>Body Contouring</li>
+            <li>Skin Rejuvenation</li>
+          </ul>
+        </div>
+      </section>
+      <section id="about" class="about">
+        <h2>
+          About Us
+          <img
+            src="images/information-button.png"
+            alt="Information Icon"
+            class="about-icon"
+          />
+        </h2>
+        <p>Learn more about our team and our mission.</p>
+        <div class="arrow" onclick="toggleContent(this)">&#9660;</div>
+        <div class="hidden-content">
+          <p>
+            It is our aim to provide you with the highest standards of service
+            and personal care. Laser Spot is designed to meet all your
+            beauty-related needs in one location. Immerse yourself in our
+            soothing Laser Cosmetic Clinic, Salon and Day Spa where our beauty
+            experts and talented professionals serve to pamper you beyond your
+            highest expectations. Call us to find out why we are different from
+            others, or come in for a free consultation. We can help you find the
+            best solution to your problem and guide you to the best possible
+            skin treatments. We will give all treatments according to your
+            needs! Our mission is to help you feel the best within your own
+            skin.
+          </p>
+        </div>
+      </section>
+      <section id="contact" class="contact">
+        <h2>
+          Contact Us
+          <img
+            src="images/contact-us.png"
+            alt="Contact Us Icon"
+            class="contact-icon"
+          />
+        </h2>
+        <p>Get in touch with us to schedule an appointment.</p>
+        <div class="arrow" onclick="toggleContent(this)">&#9660;</div>
+        <div class="hidden-content">
+          <p>
+            <strong>Address:</strong> 123 Wellness Street, Spa City, CA 90210
+          </p>
+          <p><strong>Phone:</strong> (555) 123-4567</p>
+          <p><strong>Email:</strong> contact@medicalspa.com</p>
+          <p><strong>Hours of Operation:</strong></p>
+          <ul>
+            <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
+            <li>Saturday: 10:00 AM - 4:00 PM</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <p>&copy; 2024 Medical Spa. All rights reserved.</p>
+    </footer>
+    <script>
+      function toggleContent(element) {
+        const content = element.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          element.innerHTML = "&#9660;"; // Down arrow
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          element.innerHTML = "&#9650;"; // Up arrow
+        }
+      }
+
+      function navigateAndExpand(event, sectionId) {
+        event.preventDefault();
+        const section = document.getElementById(sectionId);
+        const arrow = section.querySelector(".arrow");
+        section.scrollIntoView({ behavior: "smooth" });
+        toggleContent(arrow);
+      }
+    </script>
+  </body>
+</html>
